@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cotacao.sjdr.com.br/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://cotacao.sjdr.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cotacao.sjdr.com.br/">
+      <s:element name="ObterCotacoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codPapel" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObterCotacoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterCotacoesResult" type="tns:ArrayOfDadosCotacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDadosCotacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DadosCotacao" nillable="true" type="tns:DadosCotacao" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DadosCotacao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="codAtivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descAtivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datPregao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="horCotacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="valAbertura" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="valMaximo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="valMinimo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="valMedio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="qtdVariacao" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="qtdVolume" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="valAtual" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="valOfertaCompra" type="tns:ArrayOfDecimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="valOfertaVenda" type="tns:ArrayOfDecimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="numNegocios" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="valFechamento" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDecimal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="decimal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObterCotacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codPapel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObterCotacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObterCotacaoResult" type="tns:DadosCotacao" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObterCotacoesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterCotacoes" />
+  </wsdl:message>
+  <wsdl:message name="ObterCotacoesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterCotacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObterCotacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObterCotacao" />
+  </wsdl:message>
+  <wsdl:message name="ObterCotacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObterCotacaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CotacaoServiceSoap">
+    <wsdl:operation name="ObterCotacoes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna cotação de uma ou mais ações Bovespa utilizando threads.</wsdl:documentation>
+      <wsdl:input message="tns:ObterCotacoesSoapIn" />
+      <wsdl:output message="tns:ObterCotacoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterCotacao">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna cotação de uma ação Bovespa</wsdl:documentation>
+      <wsdl:input message="tns:ObterCotacaoSoapIn" />
+      <wsdl:output message="tns:ObterCotacaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CotacaoServiceSoap" type="tns:CotacaoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterCotacoes">
+      <soap:operation soapAction="http://cotacao.sjdr.com.br/ObterCotacoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterCotacao">
+      <soap:operation soapAction="http://cotacao.sjdr.com.br/ObterCotacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CotacaoServiceSoap12" type="tns:CotacaoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObterCotacoes">
+      <soap12:operation soapAction="http://cotacao.sjdr.com.br/ObterCotacoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterCotacao">
+      <soap12:operation soapAction="http://cotacao.sjdr.com.br/ObterCotacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CotacaoService">
+    <wsdl:port name="CotacaoServiceSoap" binding="tns:CotacaoServiceSoap">
+      <soap:address location="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CotacaoServiceSoap12" binding="tns:CotacaoServiceSoap12">
+      <soap12:address location="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
