@@ -1,6 +1,13 @@
 #labels Featured
 =Histórico de Alterações=
 
+== 2.4.2 ==
+
+ * Guarda o tamanho da tela e posição no monitor
+ * Melhorias no visual e otimização de espaço da tela
+ * Se não houve variação, preço e código de negociação ficam na cor preta
+ * bug: a versão 2.4.1 utilizava outra posição no registro para armazenar a lista de ações acompanhadas
+
 == 2.4.1 ==
 
  * bug: campo "Variação" com erro para IBOV ou quando campo "Compra" estava zerado
