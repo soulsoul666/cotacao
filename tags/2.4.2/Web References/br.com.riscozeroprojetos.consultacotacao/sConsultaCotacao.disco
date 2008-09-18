@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx?wsdl" docRef="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx" xmlns:q1="http://cotacao.sjdr.com.br/" binding="q1:CotacaoServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://consultacotacao.riscozeroprojetos.com.br/sConsultaCotacao.asmx" xmlns:q2="http://cotacao.sjdr.com.br/" binding="q2:CotacaoServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
