@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using System.Net;
 using Microsoft.Win32;
 using ConsultaCotacaoClient.br.com.riscozeroprojetos.consultacotacao;
+using System.Threading;
+using System.Globalization;
 
 namespace ConsultaCotacaoClient
 {
@@ -108,35 +110,35 @@ namespace ConsultaCotacaoClient
 
             dataGridView1.Rows[linha].Cells["CodNeg"].Value = Cotacao.codAtivo;
             dataGridView1.Rows[linha].Cells["CodNeg"].ToolTipText = Cotacao.descAtivo;
-            dataGridView1.Rows[linha].Cells["ValFechamento"].Value = Cotacao.valFechamento.ToString();
+            dataGridView1.Rows[linha].Cells["ValFechamento"].Value = Cotacao.valFechamento;
             dataGridView1.Rows[linha].Cells["QtdNegocios"].Value = Cotacao.numNegocios;
             dataGridView1.Rows[linha].Cells["QtdNegocios"].ToolTipText = "R$ " + Cotacao.qtdVolume;
             dataGridView1.Rows[linha].Cells["Hora"].Value = Cotacao.datPregao + ' ' + Cotacao.horCotacao;
 
-            dataGridView1.Rows[linha].Cells["ValAbertura"].Value = Cotacao.valAbertura.ToString();
+            dataGridView1.Rows[linha].Cells["ValAbertura"].Value = Cotacao.valAbertura;
             dataGridView1.Rows[linha].Cells["ValAbertura"].Style.ForeColor = (Cotacao.valAbertura < Cotacao.valFechamento ? Color.Red : (Cotacao.valAbertura > Cotacao.valFechamento ? Color.Blue : Color.Black));
 
-            dataGridView1.Rows[linha].Cells["ValMinimo"].Value = Cotacao.valMinimo.ToString();
+            dataGridView1.Rows[linha].Cells["ValMinimo"].Value = Cotacao.valMinimo;
             dataGridView1.Rows[linha].Cells["ValMinimo"].Style.ForeColor = (Cotacao.valMinimo < Cotacao.valFechamento ? Color.Red : (Cotacao.valMinimo > Cotacao.valFechamento ? Color.Blue : Color.Black));
 
-            dataGridView1.Rows[linha].Cells["ValMaximo"].Value = Cotacao.valMaximo.ToString();
+            dataGridView1.Rows[linha].Cells["ValMaximo"].Value = Cotacao.valMaximo;
             dataGridView1.Rows[linha].Cells["ValMaximo"].Style.ForeColor = (Cotacao.valMaximo < Cotacao.valFechamento ? Color.Red : (Cotacao.valMaximo > Cotacao.valFechamento ? Color.Blue : Color.Black));
 
-            dataGridView1.Rows[linha].Cells["ValAtualCompra"].Value = Cotacao.valOfertaCompra[0].ToString();
+            dataGridView1.Rows[linha].Cells["ValAtualCompra"].Value = Cotacao.valOfertaCompra[0];
             dataGridView1.Rows[linha].Cells["ValAtualCompra"].Style.ForeColor = (Cotacao.valOfertaCompra[0] < Cotacao.valFechamento ? Color.Red : (Cotacao.valOfertaCompra[0] > Cotacao.valFechamento ? Color.Blue : Color.Black));
 
-            dataGridView1.Rows[linha].Cells["ValAtualVenda"].Value = Cotacao.valOfertaVenda[0].ToString();
+            dataGridView1.Rows[linha].Cells["ValAtualVenda"].Value = Cotacao.valOfertaVenda[0];
             dataGridView1.Rows[linha].Cells["ValAtualVenda"].Style.ForeColor = (Cotacao.valOfertaVenda[0] < Cotacao.valFechamento ? Color.Red : (Cotacao.valOfertaVenda[0] > Cotacao.valFechamento ? Color.Blue : Color.Black));
 
             //Se tiver preço atual e de fechamento, calcula a porcentagem em tempo real
             if (Cotacao.valFechamento > 0 && Cotacao.valOfertaVenda[0] != 0)
             {
-                dataGridView1.Rows[linha].Cells["PerVariacao"].Value = Convert.ToDecimal(((Cotacao.valOfertaCompra[0] / Cotacao.valFechamento - 1) )).ToString("P2");
+                dataGridView1.Rows[linha].Cells["PerVariacao"].Value = Convert.ToDecimal(((Cotacao.valOfertaCompra[0] / Cotacao.valFechamento - 1) ));
                 dataGridView1.Rows[linha].Cells["PerVariacao"].Style.ForeColor = (Cotacao.valOfertaCompra[0] < Cotacao.valFechamento ? Color.Red : (Cotacao.valOfertaCompra[0] > Cotacao.valFechamento ? Color.Blue : Color.Black));
             }
             else
             {
-                dataGridView1.Rows[linha].Cells["PerVariacao"].Value = decimal.Divide(Cotacao.qtdVariacao, 100).ToString("P2");
+                dataGridView1.Rows[linha].Cells["PerVariacao"].Value = decimal.Divide(Cotacao.qtdVariacao, 100);
                 dataGridView1.Rows[linha].Cells["PerVariacao"].Style.ForeColor = (Cotacao.qtdVariacao < 0 ? Color.Red : (Cotacao.qtdVariacao > 0 ? Color.Blue : Color.Black));
             }
             dataGridView1.Rows[linha].Cells["CodNeg"].Style.ForeColor = dataGridView1.Rows[linha].Cells["PerVariacao"].Style.ForeColor;
@@ -197,6 +199,8 @@ namespace ConsultaCotacaoClient
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            
             int numRegistrosValidos = 0;
 
             //Abre a chave do registro e, se não encontrar, cria
@@ -214,10 +218,14 @@ namespace ConsultaCotacaoClient
                    Screen.PrimaryScreen.Bounds.Width == (int)key.GetValue(this.Name + "_screenWidth"))
                 {
                     this.SuspendLayout();
-                    this.Top = (int)key.GetValue(this.Name + "_top");
-                    this.Left = (int)key.GetValue(this.Name + "_left");
-                    this.Width = (int)key.GetValue(this.Name + "_width");
-                    this.Height = (int)key.GetValue(this.Name + "_height");
+                    if ((int)key.GetValue(this.Name + "_top") >= 0)
+                        this.Top = (int)key.GetValue(this.Name + "_top");
+                    if ((int)key.GetValue(this.Name + "_left") >= 0)
+                        this.Left = (int)key.GetValue(this.Name + "_left");
+                    if ((int)key.GetValue(this.Name + "_width") >= 0)
+                        this.Width = (int)key.GetValue(this.Name + "_width");
+                    if ((int)key.GetValue(this.Name + "_height") >= 0)
+                        this.Height = (int)key.GetValue(this.Name + "_height");
                     this.ResumeLayout();
                 }
             }
@@ -264,10 +272,14 @@ namespace ConsultaCotacaoClient
             //Grava posição e tamanho
             key.SetValue(this.Name + "_screenHeight", Screen.PrimaryScreen.Bounds.Height);
             key.SetValue(this.Name + "_screenWidth", Screen.PrimaryScreen.Bounds.Width);
-            key.SetValue(this.Name + "_top", this.Top);
-            key.SetValue(this.Name + "_left", this.Left);
-            key.SetValue(this.Name + "_width", this.Width);
-            key.SetValue(this.Name + "_height", this.Height);
+            if (this.Top >= 0)
+                key.SetValue(this.Name + "_top", this.Top);
+            if (this.Left >= 0)
+                key.SetValue(this.Name + "_left", this.Left);
+            if (this.Width >= 0)
+                key.SetValue(this.Name + "_width", this.Width);
+            if (this.Height >= 0)
+                key.SetValue(this.Name + "_height", this.Height);
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)
@@ -292,6 +304,5 @@ namespace ConsultaCotacaoClient
                 WindowState = FormWindowState.Minimized;
             }
         }
-       
     }
 }
