@@ -1,6 +1,11 @@
 #labels Featured
 =Histórico de Alterações=
 
+== 2.4.3 ==
+
+ * bug: a posição no monitor era guardada mesmo quando o _ticker_ fosse fechado quando estivesse oculto/minimizado, não sendo possível exibí-lo quando fosse reaberto
+ * bug: campos numéricos são ordenados corretamente
+
 == 2.4.2 ==
 
  * Guarda o tamanho da tela e posição no monitor
