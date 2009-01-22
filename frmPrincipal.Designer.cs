@@ -31,15 +31,23 @@ namespace ConsultaCotacaoClient
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSegundos = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.CodNeg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValFechamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValAbertura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +58,6 @@ namespace ConsultaCotacaoClient
             this.PerVariacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtdNegocios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAtualizar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSegundos = new System.Windows.Forms.Label();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,121 +94,29 @@ namespace ConsultaCotacaoClient
             this.PerVariacao,
             this.QtdNegocios,
             this.Hora});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.Location = new System.Drawing.Point(0, -1);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(575, 113);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // CodNeg
-            // 
-            this.CodNeg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CodNeg.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CodNeg.HeaderText = "Código";
-            this.CodNeg.MaxInputLength = 12;
-            this.CodNeg.Name = "CodNeg";
-            this.CodNeg.ToolTipText = "Código da Ação";
-            // 
-            // ValFechamento
-            // 
-            this.ValFechamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ValFechamento.HeaderText = "Fech.";
-            this.ValFechamento.Name = "ValFechamento";
-            this.ValFechamento.ReadOnly = true;
-            this.ValFechamento.ToolTipText = "Preço da ação no fechamento do pregão anterior (em R$)";
-            // 
-            // ValAbertura
-            // 
-            this.ValAbertura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ValAbertura.HeaderText = "Abertura";
-            this.ValAbertura.Name = "ValAbertura";
-            this.ValAbertura.ReadOnly = true;
-            this.ValAbertura.ToolTipText = "Preço da ação na abertura do pregão (em R$)";
-            // 
-            // ValMinimo
-            // 
-            this.ValMinimo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ValMinimo.HeaderText = "Mínimo";
-            this.ValMinimo.Name = "ValMinimo";
-            this.ValMinimo.ReadOnly = true;
-            this.ValMinimo.ToolTipText = "Preço mínimo da ação no pregão (em R$)";
-            // 
-            // ValMaximo
-            // 
-            this.ValMaximo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ValMaximo.HeaderText = "Máximo";
-            this.ValMaximo.Name = "ValMaximo";
-            this.ValMaximo.ReadOnly = true;
-            this.ValMaximo.ToolTipText = "Preço máximo da ação durante o pregão (em R$)";
-            // 
-            // ValAtualCompra
-            // 
-            this.ValAtualCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ValAtualCompra.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ValAtualCompra.HeaderText = "Compra";
-            this.ValAtualCompra.Name = "ValAtualCompra";
-            this.ValAtualCompra.ReadOnly = true;
-            this.ValAtualCompra.ToolTipText = "Melhor oferta de compra no momento (em R$)";
-            // 
-            // ValAtualVenda
-            // 
-            this.ValAtualVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ValAtualVenda.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ValAtualVenda.HeaderText = "Venda";
-            this.ValAtualVenda.Name = "ValAtualVenda";
-            this.ValAtualVenda.ReadOnly = true;
-            this.ValAtualVenda.ToolTipText = "Melhor oferta de venda no momento (em R$)";
-            // 
-            // PerVariacao
-            // 
-            this.PerVariacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PerVariacao.DefaultCellStyle = dataGridViewCellStyle6;
-            this.PerVariacao.HeaderText = "Variação";
-            this.PerVariacao.Name = "PerVariacao";
-            this.PerVariacao.ReadOnly = true;
-            this.PerVariacao.ToolTipText = "Variação entre o preço atual e o preço de fechamento da ação no pregão anterior (" +
-                "em %)";
-            // 
-            // QtdNegocios
-            // 
-            this.QtdNegocios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.QtdNegocios.HeaderText = "Negócios";
-            this.QtdNegocios.Name = "QtdNegocios";
-            this.QtdNegocios.ReadOnly = true;
-            this.QtdNegocios.ToolTipText = "Número de negócios fechados durante o pregão";
-            // 
-            // Hora
-            // 
-            this.Hora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Hora.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Hora.HeaderText = "Hora";
-            this.Hora.Name = "Hora";
-            this.Hora.ReadOnly = true;
-            this.Hora.ToolTipText = "Data e hora do pregão aos quais a cotação é referente";
-            this.Hora.Width = 57;
             // 
             // btnAtualizar
             // 
@@ -247,6 +159,118 @@ namespace ConsultaCotacaoClient
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
+            // CodNeg
+            // 
+            this.CodNeg.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.CodNeg.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CodNeg.HeaderText = "Código";
+            this.CodNeg.MaxInputLength = 12;
+            this.CodNeg.Name = "CodNeg";
+            this.CodNeg.ToolTipText = "Código da Ação";
+            // 
+            // ValFechamento
+            // 
+            this.ValFechamento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ValFechamento.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ValFechamento.HeaderText = "Fech.";
+            this.ValFechamento.Name = "ValFechamento";
+            this.ValFechamento.ReadOnly = true;
+            this.ValFechamento.ToolTipText = "Preço da ação no fechamento do pregão anterior (em R$)";
+            // 
+            // ValAbertura
+            // 
+            this.ValAbertura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.ValAbertura.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ValAbertura.HeaderText = "Abertura";
+            this.ValAbertura.Name = "ValAbertura";
+            this.ValAbertura.ReadOnly = true;
+            this.ValAbertura.ToolTipText = "Preço da ação na abertura do pregão (em R$)";
+            // 
+            // ValMinimo
+            // 
+            this.ValMinimo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ValMinimo.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ValMinimo.HeaderText = "Mínimo";
+            this.ValMinimo.Name = "ValMinimo";
+            this.ValMinimo.ReadOnly = true;
+            this.ValMinimo.ToolTipText = "Preço mínimo da ação no pregão (em R$)";
+            // 
+            // ValMaximo
+            // 
+            this.ValMaximo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.ValMaximo.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ValMaximo.HeaderText = "Máximo";
+            this.ValMaximo.Name = "ValMaximo";
+            this.ValMaximo.ReadOnly = true;
+            this.ValMaximo.ToolTipText = "Preço máximo da ação durante o pregão (em R$)";
+            // 
+            // ValAtualCompra
+            // 
+            this.ValAtualCompra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.ValAtualCompra.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ValAtualCompra.HeaderText = "Compra";
+            this.ValAtualCompra.Name = "ValAtualCompra";
+            this.ValAtualCompra.ReadOnly = true;
+            this.ValAtualCompra.ToolTipText = "Melhor oferta de compra no momento (em R$)";
+            // 
+            // ValAtualVenda
+            // 
+            this.ValAtualVenda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.ValAtualVenda.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ValAtualVenda.HeaderText = "Venda";
+            this.ValAtualVenda.Name = "ValAtualVenda";
+            this.ValAtualVenda.ReadOnly = true;
+            this.ValAtualVenda.ToolTipText = "Melhor oferta de venda no momento (em R$)";
+            // 
+            // PerVariacao
+            // 
+            this.PerVariacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Format = "P2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.PerVariacao.DefaultCellStyle = dataGridViewCellStyle10;
+            this.PerVariacao.HeaderText = "Variação";
+            this.PerVariacao.Name = "PerVariacao";
+            this.PerVariacao.ReadOnly = true;
+            this.PerVariacao.ToolTipText = "Variação entre o preço atual e o preço de fechamento da ação no pregão anterior (" +
+                "em %)";
+            // 
+            // QtdNegocios
+            // 
+            this.QtdNegocios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.QtdNegocios.HeaderText = "Negócios";
+            this.QtdNegocios.Name = "QtdNegocios";
+            this.QtdNegocios.ReadOnly = true;
+            this.QtdNegocios.ToolTipText = "Número de negócios fechados durante o pregão";
+            // 
+            // Hora
+            // 
+            this.Hora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Format = "g";
+            dataGridViewCellStyle11.NullValue = null;
+            this.Hora.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Hora.HeaderText = "Hora";
+            this.Hora.Name = "Hora";
+            this.Hora.ReadOnly = true;
+            this.Hora.ToolTipText = "Data e hora do pregão aos quais a cotação é referente";
+            this.Hora.Width = 57;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,7 +283,7 @@ namespace ConsultaCotacaoClient
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
-            this.Text = "Consulta Cotação v2.4.2";
+            this.Text = "Consulta Cotação v2.4.3";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
